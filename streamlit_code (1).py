@@ -567,18 +567,3 @@ Original file is located at
 # if __name__ == "__main__":
 #     main()
 
-# 1. Install and kill old ports
-!pip install pyngrok -q
-!fuser -k 80/tcp
-
-# 2. Authenticate
-from pyngrok import ngrok
-ngrok.set_auth_token("3CPTlAfW9nMarFIOuP7l4QgB1YV_2YqkEGesQ8BQLMQNN1tT6")
-
-# 3. Run the app in the background
-import os
-os.system("streamlit run app.py --server.port 80 &")
-
-# 4. Open the tunnel
-url = ngrok.connect(80)
-print("🎯 Click here to open your App:", url)
